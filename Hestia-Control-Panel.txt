@@ -1,0 +1,51 @@
+1.  Update Your System: Open the terminal and run:
+
+   sudo apt update && sudo apt upgrade -y
+
+2. Install Dependencies: Make sure curl is installed:
+
+   sudo apt install curl -y
+
+3. Download the Hestia Installer: Get the official Hestia installer script:
+
+   curl -O https://raw.githubusercontent.com/hestiacp/hestiacp/release/install/hst-install.sh
+
+4. Run the Installer: Execute the downloaded script. You can customize options such as services to install by specifying flags:
+
+   sudo bash hst-install.sh --apache yes --phpfpm yes --multiphp yes --mysql yes --proftpd yes --quota yes --force
+
+5. Follow the Prompts: The installer will prompt you to confirm the installation and ask for an email address and hostname. Provide the necessary details.
+
+6. Reboot the Server: After the installation completes, reboot the server:
+
+   sudo reboot
+
+7. Access the Control Panel: After rebooting, access Hestia Control Panel by navigating to https://your-server-ip:8083 in a web browser.
+
+8.  Login: Use the credentials shown at the end of the installation to log into the Hestia Control Panel.
+
+==================================================================================================================================================================================================================================================
+issue :
+
+sed: can't read /etc/systemd/timesyncd.conf: No such file or directory
+Failed to enable unit: Unit file systemd-timesyncd.service does not exist.
+Failed to start systemd-timesyncd.service: Unit systemd-
+
+solution: 
+
+sudo apt-get install systemd-timesyncd
+sudo systemctl enable systemd-timesyncd
+sudo systemctl start systemd-timesyncd
+
+
+======================================================================
+
+Password Change:
+
+cd /usr/local/hestia/bin
+./v-change-user-password admin yourpass
+
+========================================================================================
+
+
+ 
